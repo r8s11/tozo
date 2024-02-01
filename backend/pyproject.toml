@@ -15,12 +15,12 @@ dev = [
     "black>=23.7.0",
     "isort>=5.12.0",
     "djhtml>=3.0.6",
-    "mypy>=1.4.1",
-    "flake8>=6.0.0",
-    "bandit>=1.7.5",
-    "vulture>=2.7",
-    "pytest>=7.4.0",
-    "pytest-asyncio>=0.21.1",
+    "mypy>=1.8.0",
+    "flake8>=7.0.0",
+    "bandit>=1.7.7",
+    "vulture>=2.11",
+    "pytest>=7.4.4",
+    "pytest-asyncio>=0.23.4",
 ]
 
 
@@ -31,3 +31,8 @@ min_confidence = 100
 addopts = "--showlocals"
 asyncio_mode = "auto"
 pythonpath = ["src"]
+
+[tool.black]
+target-version = ["py310"]
+[tool.isort]
+profile = "black"
