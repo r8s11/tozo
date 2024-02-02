@@ -36,3 +36,18 @@ pythonpath = ["src"]
 target-version = ["py310"]
 [tool.isort]
 profile = "black"
+
+[tool.pdm.scripts]
+format-black = "black src/ test/"
+format-djhtml = "djhtml src/backend/templates -t 2 --in-place"
+format-isort = "isort src tests"
+format = {composit = ["format-black", "format-djhtml", "format-isort"]}
+lint-bandit = "bandit -r src/"
+lint-black = "black --check --diff src/ tests/"
+lint-djhtml = "djhtml src/backend/templates -t 2 --check"
+lint-flake8 = "flake8 src/ tests/"
+lint-isort = "isort --check --diff src tests"
+lint-mypy = "mypy src/backend tests"
+lint-vulture = "vulture src"
+lint = { composit = ["lint-bandit", "lint-black", "lint-djhtml", "lint-flake8", "lint-isort", "lint-mpy", "lint-vulture"]}
+test = "pytest tests/"
